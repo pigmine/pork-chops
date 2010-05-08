@@ -38,6 +38,8 @@
 			return c;
 		},
 		
+		mergeObjects: mergeObjects,
+		
 		//serves as a namespace for prepared functions as an extension to Chops
 		mixins: {}
 	};
