@@ -12,6 +12,7 @@ Chops.mixins.event: {
 			f._fn_Chops_ = fn;
 			
 			this._events_Chops_.push(f);
+			
 			return this;
 		},
 		
@@ -25,6 +26,8 @@ Chops.mixins.event: {
 				}
 			}
 			this._events_Chops_[name] = a;
+			
+			return this;
 		},
 		
 		trigger: function (name) {
@@ -34,6 +37,8 @@ Chops.mixins.event: {
 					a[i]();
 				}
 			}
+			
+			return this;
 		}
 	}
 };
