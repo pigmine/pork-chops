@@ -1,9 +1,14 @@
 Chops.mixins.mix = {
 	mix: function () {
-		var objs = [];
-		for (var i = arguments.length - 1; i >= 0; i -= 1)
-			objs.push(o, arguments[i]());
-		
-		obj
+		var property, i, c;
+		for (i = arguments.length; i >= 0; i -= 1) {
+			c = arguments[i];
+			if (typeof c === 'function')
+				c = c();
+			for (property in c) {
+				if (c.hasOwnProperty(property))
+					this[property] = c[property];
+			}
+		}
 	}
 };
