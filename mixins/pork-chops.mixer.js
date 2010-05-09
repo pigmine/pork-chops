@@ -1,5 +1,5 @@
-Chops.mixins.mix = {
-	mix: function () {
+Chops.mixins.mixer = {
+	mixin: function () {
 		var property, i, c;
 		for (i = arguments.length; i >= 0; i -= 1) {
 			c = arguments[i];
