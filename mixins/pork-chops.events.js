@@ -1,7 +1,7 @@
 Chops.mixins.event: {
 		_events_Chops_: {},
 		
-		addEvent: function (name, fn) {
+		bind: function (name, fn) {
 			if (!this._events_Chops_[name])
 				this._events_Chops_[name] = [];
 			
@@ -15,7 +15,7 @@ Chops.mixins.event: {
 			return this;
 		},
 		
-		removeEvent: function (name, fn) {
+		unbind: function (name, fn) {
 			var a = this._events_Chops_[name];
 			if (!!a && a.length) {
 				for (var i = 0, len = a.length; i < len; i++) {
@@ -27,33 +27,12 @@ Chops.mixins.event: {
 			this._events_Chops_[name] = a;
 		},
 		
-		fireEvent: function (name) {
+		trigger: function (name) {
 			var a = this._events_Chops_[name];
 			if (!!a && a.length) {
 				for (var i = 0, len = a.length; i < len; i++) {
 					a[i]();
 				}
-			}
-		},
-		
-		addEvents: function (obj) {
-			for (var property in obj) {
-				if (obj.hasOwnProperty(property))
-					this.addEvent(property, obj[property]);
-			}
-		},
-		
-		removeEvents: function (obj) {
-			for (var property in obj) {
-				if (obj.hasOwnProperty(property))
-					this.removeEvent(property, obj[property]);
-			}
-		},
-		
-		fireEvents: function () {
-			for (var property in obj) {
-				if (obj.hasOwnProperty(property))
-					this.addEvent(property, obj[property]);
 			}
 		}
 	}
